@@ -1,4 +1,4 @@
-# Laboratorio Laravel - Instalación y Configuración del Entorno
+# Laboratorio Instalación y Uso de Laravel
 
 ## Introducción
 
@@ -26,7 +26,7 @@ Los componentes necesarios que utilicé para el laboratorio :
 | **Base de Datos** | MySQL (vía phpMyAdmin) | <img src="https://img.shields.io/badge/MySQL-9.1-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL"/> |
 | **Editor de Código** | Visual Studio Code (VS Code) | <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code"/> |
 | **Sistema Operativo** | Windows | <img src="https://img.shields.io/badge/Windows-11-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows"/> |
-| **NPM** | Paquetes Node.js y dependencias previamente instaladas | <img src="https://img.shields.io/badge/NPM-prebundled-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="NPM preinstalado"/> |
+| **NPM** | Paquetes Node.js y dependencias previamente instaladas |
 
 > **Nota**: Se requirió desinstalar PHP 7.4 para evitar conflictos y poder utilizar PHP 8.5, compatible con la versión de phpMyAdmin disponible en WampServer.
 
@@ -81,6 +81,7 @@ Una vez dentro del proyecto, edité las credenciales del archivo `.env`, las cua
 DB_USERNAME=root
 DB_PASSWORD=luifer123
 ```
+Originalmente mi myadmin ya tenía contraseña, tenia que actualizarla en el env.
 <img width="1919" height="1019" alt="Captura de pantalla 2026-04-15 203317" src="https://github.com/user-attachments/assets/1a08e0d0-349a-4de3-880b-b8631267eda2" />
 
 ### 4.1. Solución de error con migraciones
@@ -123,3 +124,64 @@ Al ejecutarlo, se confirma la creación de la base de datos PruebaLaravel en MyS
 
 <img width="1919" height="918" alt="Captura de pantalla 2026-04-14 220848" src="https://github.com/user-attachments/assets/0abc8eb9-07ba-462b-98a7-752c52a17894" />
 
+## 5. Autenticación en Laravel e instalación de UI y sus complementos
+
+En esta última parte utilicé y el paquete **Laravel UI**, un paquete oficial que proporciona scaffolding de autenticación con diferentes opciones de frontend. Genera las vistas, controladores y rutas necesarias para que los usuarios puedan registrarse e iniciar sesión.
+
+### 5.1. Instalación de Laravel UI y complementos
+
+Se ejecutó el siguiente comando para instalar el paquete:
+
+```
+composer require laravel/ui
+```
+<img width="973" height="481" alt="Captura de pantalla 2026-04-14 221117" src="https://github.com/user-attachments/assets/22cecf35-62b0-4f07-aca5-5147ebe45863" />
+
+### 5.2. Uso de Scaffolding con Bootstrap
+Luego de instalar el paquete ejecutamos los siguientes instaladores del bootstrap y lows npm para complementos node adicionales:
+
+```
+php artisan ui bootstrap
+npm install
+php artisan ui bootstrap --auth (aquí reemplazará un controlador original)
+npm install
+```
+<img width="809" height="320" alt="Captura de pantalla 2026-04-14 222843" src="https://github.com/user-attachments/assets/206387a1-a1a0-430d-a4d6-c32de2a31ed2" />
+
+Una vez instalado todos loc omplementos para el uso del login y registro, ejecutamos:
+```
+composer run dev
+```
+para visualizar la página del registro.
+
+# 6.Página del login/registro
+Ejecutamos composer run dev para ver la página de registro:
+<img width="1082" height="657" alt="Captura de pantalla 2026-04-14 222930" src="https://github.com/user-attachments/assets/48486dd3-1779-4c47-950f-f8c4add5d044" />
+<img width="1919" height="970" alt="Captura de pantalla 2026-04-14 222949" src="https://github.com/user-attachments/assets/80d661c6-5626-4ae0-a886-92463ed4dce4" />
+Nos registramos:
+<img width="1919" height="572" alt="Captura de pantalla 2026-04-14 223144" src="https://github.com/user-attachments/assets/04e109a6-0779-45ae-9e43-14087bb0a156" />
+Registrados y loggeados.
+<img width="1919" height="276" alt="Captura de pantalla 2026-04-14 223157" src="https://github.com/user-attachments/assets/3860d51b-76a3-467c-a816-73e523ab40fe" />
+
+## Dificultades y Soluciones
+
+Durante el laboratorio se presentaron errores en la instalación de dependencias con npm, ya que tenía algunas previamente instaladas debido a Node.js, lo que generó conflictos que retrasaron el avance del laboratorio.
+
+---
+
+## Referencias
+
+[1] Video de instalación y guía - https://youtu.be/GZMGyYNq3hE?si=M1eklfa4WWunI7TZ
+
+[2] Documentación oficial de Laravel para la Instalación - https://laravel.com/docs/13.x/installation
+
+[3] Getting started with Laravel and Database - https://laravel.com/docs/13.x/database
+
+**Este laboratorio ha sido desarrollado por el estudiante de la Universidad Tecnológica de Panamá:**
+| Campo | Información |
+|-------|--------------|
+| **Nombre** | Luis Jiménez |
+| **Correo** | luis.jimenez6@utp.ac.pa |
+| **Curso** | Desarrollo de Software 7 |
+| **Fecha de Ejecución del Laboratorio** | 13-04-26 |
+| **Instructor del Laboratorio** | Irina Fong |
